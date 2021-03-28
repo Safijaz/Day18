@@ -1,18 +1,20 @@
 // Only change code below this line 
-let rockStar= Map([
- ['artist'],
- ['song'],
- ['album'],
- ['singer']
+let rockStar = new Map(
+    [
+        ["artist","The Rolling Stones"],
+        ["song","Angie"],
+        ["album","Goats Head Soup"],
+        ["singer","Mick Jagger"]
+    ]
+);
 
-]);
-
-const newRock = new Map()
-newRock.set('artist', 'Roling Stone')
-newRock.set('song', 'Angie')
-
-
-
-
+var newRock = new Map();
+for (var key of rockStar.keys()) {
+    if (key[0].localeCompare("a")==1) {
+        newRock.set(key,rockStar.get(key));
+    }
+}
+ 
+ console.log(newRock);
 // Only change code above this line 
 module. exports ={rockStar, newRock};
