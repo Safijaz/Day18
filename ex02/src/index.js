@@ -7,36 +7,37 @@ function* myGenerator() {
     }
 
 function*insideGenerator1 (){
-
-for(let i = 1; i <= 5; i++){
-       let x=i;     
-       yield x;
+    let x=0;
+    for(let i = 1; i <= 5; i++){
+        
+       x=(yield i);
            
-          }
+    } return x;
 }
 function*insideGenerator2(){
+    let x=0;
     for(let i = 10; i <= 15; i++){
-        let x=i;     
-        yield x;
             
-           }
+        x=(yield i);
+                
+    } return x;
 }
 function*insideGenerator3(){
-    for(let i = 6; i <= 9; i++){
-        let x=i;     
-        yield x;
-            
-    }
-}
-let iterator =myGenerator();
-let fifteenArray= [];
-console.log(iterator);
-for(let i =0; i <iterator.length; i++){
-    console.log(iterator.next());
-    fifteenArray.push(iterator.next());
+    let x=0;
+    for (var i=6;i<=9;i++) {
+        x=(yield i);
         
+    }
+    return x;
 }
+var iterator =myGenerator();
+var fifteenArray= [];
+
+for(var i=0;i<16;i++) {
+    var item = iterator.next().value;
+    fifteenArray.push(item+(item===undefined?"!":"#"));
+}      
     
 console.log(fifteenArray);
-//Only change code above this line 
+//Only change code above this line
 module.exports = {fifteenArray, myGenerator};
